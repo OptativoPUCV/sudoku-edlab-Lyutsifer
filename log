@@ -1,0 +1,18 @@
+Sun Oct 18 17:46:30 UTC 2020: 
+ sudoku.c | 26 ++++++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
+In file included from test.c:5:0:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:56:11: error: redefinition of ‘list’
+     List* list=createList();
+           ^~~~
+sudoku.c:52:11: note: previous definition of ‘list’ was here
+     List* list=createList();
+           ^~~~
+Compilation failed
+Sun Oct 18 17:47:00 UTC 2020: 
+ sudoku.c | 26 ++++++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
+ tests:  2|4
+total_score: 15/70
+c6beceb
