@@ -74,35 +74,6 @@ int is_valid(Node* n){
     }
   return 1;
 }
- /*   i= 0; j= 0;
-        //Matrix check
-        for (int k= 0; k<9); k++){
-        int * numbers3= (int*) malloc(10 * sizeof(int));
-        for(int p=0;p<9;p++){
-          int i=3*(k/3) + (p/3) ;
-          int j=3*(k%3) + (p%3) ;
-  }       free(numbers3);  
-    }
-    return 1;
-}*/
-    /*
-    //Column check
-    for (j=0; j<9; j++){
-      //Create an array, it saves numbers to compare
-      int * numbersT= (int*) malloc(10 * sizeof(int));
-
-      for (i=0; i<9; i++){
-        if (numbersT[i] == 0){
-          numbersT[i] = 1;
-        }
-        else{
-           return 0;
-        }
-      }
-      free(numbersT);
-    }
-      */
-    
 
 List* get_adj_nodes(Node* n){
     //List* list=createList();
@@ -137,7 +108,6 @@ List* get_adj_nodes(Node* n){
     
   return list;
 }
-
 
 int is_final(Node* n){
     return 0;
