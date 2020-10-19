@@ -48,8 +48,6 @@ int is_valid(Node* n){
     //Linear check
     for (i=0; i<9; i++){
       //Create an array, it saves numbers to compare
-      //int * numbers= (int*) malloc(10 * sizeof(int));
-
       for (j=0; j<9; j++){ 
         if (n->sudo[i][j] == 0) continue;
 
