@@ -43,10 +43,66 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
+    int i, j, k;
+    
+    //Linear check
+    for (i=0; i<9; i++){
+      //Create an array, it saves numbers to compare
+      //int * numbers= (int*) malloc(10 * sizeof(int));
 
-    return 1;
+      for (j=0; j<9; j++){ 
+        if (n->sudo[i][j] == 0) continue;
+
+        for (k=0; k<9; k++){
+
+            if (n->sudo[i][j] == n->sudo[i][k] && j != k){
+              return 0;
+            }
+            if (n->sudo[i][j] == n->sudo[k][j] && i != k){
+              return 0;
+            }
+        }
+        k=i;
+        for(int p=0;p<9;p++){
+            int x= 3*(k/3) + (p/3) ;
+            int d= 3*(k%3) + (p%3) ;
+            if (n->sudo[i][j] == n->sudo[x][d] && (i!=x && j!=d)){
+              return 0;
+            }
+        }        
+      }
+    }
+  return 1;
 }
+ /*   i= 0; j= 0;
+        //Matrix check
+        for (int k= 0; k<9); k++){
+        int * numbers3= (int*) malloc(10 * sizeof(int));
+        for(int p=0;p<9;p++){
+          int i=3*(k/3) + (p/3) ;
+          int j=3*(k%3) + (p%3) ;
+  }       free(numbers3);  
+    }
+    return 1;
+}*/
+    /*
+    //Column check
+    for (j=0; j<9; j++){
+      //Create an array, it saves numbers to compare
+      int * numbersT= (int*) malloc(10 * sizeof(int));
 
+      for (i=0; i<9; i++){
+        if (numbersT[i] == 0){
+          numbersT[i] = 1;
+        }
+        else{
+           return 0;
+        }
+      }
+      free(numbersT);
+    }
+      */
+    
 
 List* get_adj_nodes(Node* n){
     //List* list=createList();
@@ -61,8 +117,9 @@ List* get_adj_nodes(Node* n){
       {
         if(n->sudo[f][g]==0)
         {
-          for( numero=1 ; numero<10 ; numero++){
-            while(numero<9)
+          for( numero=1 ; numero<10 ; numero++)
+          {
+            while(numero<10)
             {
               n->sudo[f][g]=numero;
               if(is_valid(n))
@@ -75,9 +132,7 @@ List* get_adj_nodes(Node* n){
           n->sudo[f][g]=0;
           }
         }
-        
       }
-
     }
     
   return list;
