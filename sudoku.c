@@ -62,7 +62,7 @@ int is_valid(Node* n){
               return 0;
             }
         }
-        k=(i/3)*3+j/3;
+        k= 3*(i/3) + (j/3);
         for(int p=0;p<9;p++){
             int x= 3*(k/3) + (p/3) ;
             int d= 3*(k%3) + (p%3) ;
