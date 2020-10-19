@@ -91,16 +91,11 @@ List* get_adj_nodes(Node* n){
         {
           for( numero=1 ; numero<10 ; numero++)
           {
-            int tiramisu= numero;
-            while(tiramisu<10)
+            n->sudo[f][g]=numero;
+            if(is_valid(n))
             {
-              n->sudo[f][g]=numero;
-              if(is_valid(n))
-              {
-                Node* nuevo=copy(n);
-                pushBack(list, nuevo);
-              }
-            tiramisu++;
+              Node* nuevo=copy(n);
+              pushBack(list, nuevo);
             }
           n->sudo[f][g]=0;
           }
