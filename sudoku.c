@@ -107,6 +107,7 @@ List* get_adj_nodes(Node* n){
   return list;
 }
 
+//Perfect
 int is_final(Node* n){
     int i,j;
     for (i=0; i<9; i++){
@@ -118,8 +119,22 @@ int is_final(Node* n){
 }
 
 Node* DFS(Node* initial, int* cont){
+  Stack *s = createStack();
+  push(s,initial);
+  while (get_size(s) != 0){
+      Node * h= top(s);
+      pop(s); 
+      //n = top(s)
+      if (is_final(h) == 1) return h;
+      List * adj = get_adj_nodes(h); 
+      Node * aux= first(adj);
+      while (aux){
+        push(s,aux);
+        aux= next(adj);
+      }
+  }
   return NULL;
-}
+} 
 
 
 
